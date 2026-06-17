@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "volsurface"
+version = "0.1.0"
+description = "Institutional options pricing to IV surface engine (APAC focus)"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24", "scipy>=1.10", "pandas>=2.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "matplotlib>=3.7"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
