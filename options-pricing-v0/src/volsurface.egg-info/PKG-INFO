@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: volsurface
+Version: 0.1.0
+Summary: Institutional options pricing to IV surface engine (APAC focus)
+Requires-Python: >=3.10
+Requires-Dist: numpy>=1.24
+Requires-Dist: scipy>=1.10
+Requires-Dist: pandas>=2.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0; extra == "dev"
+Requires-Dist: matplotlib>=3.7; extra == "dev"

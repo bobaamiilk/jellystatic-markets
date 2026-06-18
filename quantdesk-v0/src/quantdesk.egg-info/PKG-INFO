@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: quantdesk
+Version: 0.1.0
+Summary: Integration layer orchestrating volsurface, statarb, and volforecast for APAC regime-scaled stat-arb
+Requires-Python: >=3.10
+Requires-Dist: numpy>=1.24
+Requires-Dist: scipy>=1.10
+Requires-Dist: pandas>=2.0
+Requires-Dist: statsmodels>=0.14
+Requires-Dist: matplotlib>=3.7
+Requires-Dist: pydantic>=2.0
+Requires-Dist: pyyaml>=6.0
+Requires-Dist: pyarrow>=12.0
+Requires-Dist: statarb
+Requires-Dist: volforecast
+Requires-Dist: volsurface
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0; extra == "dev"
