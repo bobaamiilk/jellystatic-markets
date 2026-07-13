@@ -1,8 +1,10 @@
 # APAC Quant Systems
 
-This started because I was tired of being able to *say* the words (cointegration, vol surface, GARCH) without really being able to build any of it. So I sat down and wrote the three systems a derivatives desk actually runs on, from the maths up, focused on Asia-Pacific markets (Nikkei, Hang Seng, KOSPI 200, ASX 200) since that's where I am.
+This started because I was tired of being able to *say* the words (cointegration, vol surface, GARCH) without really being able to build any of it. So I sat down and built the three systems a derivatives desk actually runs on, from the maths up, focused on Asia-Pacific markets (Nikkei, Hang Seng, KOSPI 200, ASX 200) since that's where I am.
 
-The one rule I gave myself: no calling a library to do the hard part. If the project is GARCH, I write the likelihood. If it's a vol surface, I write the calibration. Otherwise I'd just be importing someone else's understanding and pretending it was mine.
+The one rule I gave myself: no calling a library to do the hard part. If the project is GARCH, the likelihood is coded in this repo. If it's a vol surface, so is the calibration. Otherwise I'd just be importing someone else's understanding and pretending it was mine.
+
+Worth saying plainly, since this repo is about not fooling yourself: I built these systems with an AI assistant writing much of the code alongside me — my work is the system design, the choice of methods, and the validation (deciding what to test, and checking every result against ground truth I generated). The "no library for the hard part" rule still holds — the GARCH likelihood, SVI calibration, IV solver and Kalman filter are all implemented here, not imported — but "I typed every line" would be the wrong claim, so I'm not making it.
 
 | # | System | What it does | Tests |
 |---|--------|--------------|:-----:|
@@ -10,7 +12,7 @@ The one rule I gave myself: no calling a library to do the hard part. If the pro
 | 2 | [Statistical arbitrage](./statistical-arbitrage) | Finds mean-reverting pairs, hedges them, backtests them honestly | 17 ✅ |
 | 3 | [Volatility forecasting](./volatility-forecast) | GARCH/EGARCH forecasts that turn into position sizes | 17 ✅ |
 
-64 tests passing. All plain Python: NumPy, SciPy, pandas, statsmodels. The GARCH MLE, the SVI fit, the implied-vol solver and the Kalman filter are all hand-written.
+64 tests passing. All plain Python: NumPy, SciPy, pandas, statsmodels. The GARCH MLE, the SVI fit, the implied-vol solver and the Kalman filter are all implemented in this repo, not imported.
 
 **Worth saying plainly:** everything here runs on synthetic data I generated with known parameters, and the tests pass when the code recovers those parameters. That tells you the implementations are *correct*. It does not tell you any of this makes money, which needs real data, and that's the next job. Nothing here is financial advice.
 
