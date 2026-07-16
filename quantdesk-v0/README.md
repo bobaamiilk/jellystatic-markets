@@ -49,6 +49,16 @@ Outputs land in `out/`:
 - `out/report.html` — self-contained HTML (base64 figures, no external assets)
 - `out/results.parquet` — signal/return/regime timeseries for reproducibility
 
+### Reference numbers (deterministic `--synthetic` run)
+
+The synthetic run prints, reproducibly (byte-identical Parquet across runs):
+**16 of 18** planted pairs traded (screen recovers 17/18 with 0 false
+discoveries; the tradeability filter drops one more), **OOS Sharpe +2.51
+regime-scaled vs +2.78 unscaled** (the overlay did not help on this universe —
+the report says so), max drawdown −0.3%, Calmar 13.4, 20% of days de-grossed.
+The printout is the source of truth: if code or seeds change these numbers,
+update this section to match.
+
 ---
 
 ## The pipeline in detail

@@ -73,8 +73,11 @@ python -m statarb.examples.run_pipeline     # screen + backtest + reports/statar
 ## Validation highlights
 - Detects known cointegrated pairs; rejects independent random walks.
 - Recovers the known hedge ratio (±0.15) and half-life (right order of magnitude).
-- Screen recovers 18/18 true within-sector pairs with 0 false discoveries; FDR
-  monotone in level.
+- Screen recovers 18/18 true within-sector pairs with 0 false discoveries on
+  this package's demo universe (`run_pipeline`, 1000 days); on the quantdesk
+  integration universe (750 days, seed 42) it recovers 17/18, still with 0
+  false discoveries, and 16 survive the tradeability filter. FDR monotone in
+  level.
 - Kalman tracks a β drifting 1.0→2.0; rolling OLS is causal.
 - Costs strictly reduce returns; OOS execution proven look-ahead-free.
 - Example run: in-sample Sharpe ≈ 1.9 collapses to OOS Sharpe ≈ 1.0 — the honest
